@@ -77,7 +77,7 @@ class _ShowItemPageState extends State<ShowItemPage> {
                   Center(
                     child: Screenshot(
                       controller: _screenShotController,
-                      child: QrImage(
+                      child: QrImageView(
                         data: widget.data,
                         backgroundColor: Colors.grey.shade200,
                         version: QrVersions.auto,

@@ -15,7 +15,12 @@ class AddItem extends StatefulWidget {
   List itemList;
   List tripList;
   List wholeList;
-  AddItem({Key? key, required this.itemList, required this.tripList, required this.wholeList}) : super(key: key);
+  AddItem(
+      {Key? key,
+      required this.itemList,
+      required this.tripList,
+      required this.wholeList})
+      : super(key: key);
 
   @override
   State<AddItem> createState() => _AddItemState();
@@ -61,7 +66,7 @@ class _AddItemState extends State<AddItem> {
                   Center(
                     child: Screenshot(
                       controller: _screenShotController,
-                      child: QrImage(
+                      child: QrImageView(
                         data: data,
                         backgroundColor: Colors.grey.shade200,
                         version: QrVersions.auto,
@@ -111,7 +116,10 @@ class _AddItemState extends State<AddItem> {
                       await saveImage(_imageFile);
                       //await saveAndShare(_imageFile);
                       widget.itemList.add([data.toString(), false]);
-                      Get.offAll(CreateListPage(listItem: widget.itemList, tripList: widget.tripList, wholeList: widget.wholeList));
+                      Get.offAll(CreateListPage(
+                          listItem: widget.itemList,
+                          tripList: widget.tripList,
+                          wholeList: widget.wholeList));
                     },
                     fillColor: Colors.red.shade300,
                     elevation: 0.0,
@@ -141,7 +149,10 @@ class _AddItemState extends State<AddItem> {
                       //await saveImage(_imageFile);
                       await saveAndShare(_imageFile);
                       widget.itemList.add(data.toString());
-                      Get.offAll(CreateListPage(listItem: widget.itemList, tripList: widget.tripList, wholeList: widget.wholeList));
+                      Get.offAll(CreateListPage(
+                          listItem: widget.itemList,
+                          tripList: widget.tripList,
+                          wholeList: widget.wholeList));
                     },
                     fillColor: Colors.red.shade300,
                     elevation: 0.0,
